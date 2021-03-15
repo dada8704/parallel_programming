@@ -3,19 +3,19 @@
 #include<string>
 #include<math.h>
 #include<algorithm>
+#include<assert.h>
 #include<time.h>
-
-#include "Matrix.hpp"
 
 template<typename T>
 class Column_Major_Matrix
 {
-//private:
+private:
+    int Cols = 0, Rows = 0;
 //    std::vector<std::vector<T>> all_column;
 public:
     std::vector<std::vector<T>> all_column;
     //constructor
-    Column_Major_Matrix(const int cols = 3, const int rows = 3)
+    Column_Major_Matrix(const int cols = 3, const int rows = 3) : Cols(cols), Rows(rows)
     {
         srand(time(0));
         all_column.resize(cols);
@@ -56,6 +56,13 @@ public:
     {
         return all_column[idx];
     }
+
+    //setter function
+    void setter(int idx, std::vector<T> vec)
+    {
+        assert(vec.size() == Rows);
+        all_column[idx] = vec;
+    }
 };
 
 int main(void)
@@ -72,6 +79,7 @@ int main(void)
             std::cout << row << " ";
         std::cout << std::endl;
     }
+    test2.setter(0, {11, 12, 13});
     for(auto col : test2.getter(0))
     {
         std::cout << col << " ";
