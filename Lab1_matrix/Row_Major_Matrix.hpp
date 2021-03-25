@@ -103,7 +103,7 @@ public:
                     ans[i][j] += all_row[i][k] * CC[j][k];
     }
 
-    //type-cast operator
+    //%%%%%%%%%%%%%%%%%%%%%%%%%%
     template<typename U>
     Row_Major_Matrix<T> operator% (Column_Major_Matrix<U>& CC)
     {
@@ -120,6 +120,7 @@ public:
         return Row_Major_Matrix (final_matrix);
     }
 
+    //type-cast operator
     operator Column_Major_Matrix<T>()
     {
         std::vector<std::vector<T>> vec (Cols,  std::vector<T> (Rows, 0) );
