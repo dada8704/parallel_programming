@@ -1,3 +1,5 @@
+#pragma once
+
 #include<iostream>
 #include<string>
 #include<fstream>
@@ -22,11 +24,12 @@ public:
         
         
         std::string trash, seq;
-        if(std::getline(istrm, trash))
-            std::cout << trash << "\n";
-        if(std::getline(istrm, seq))
-            std::cout << seq << "\n";
-        
+        //if(std::getline(istrm, trash))
+        //    std::cout << trash << "\n";
+        //if(std::getline(istrm, seq))
+        //    std::cout << seq << "\n";
+        std::getline(istrm, trash);
+        std::getline(istrm, seq);
 
         return Fasta(seq);  
     }
